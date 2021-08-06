@@ -46,7 +46,7 @@
 	<!-- ===========Cart================= -->
 	<div class="small-container cart-page ">
 	
-		<table>
+		<table class="cart-items">
 			<tr>
 				<th>Product</th>
 				<th>Quantity</th>
@@ -54,38 +54,38 @@
 			
 			</tr>
 			
-			<tr>
+			<tr class="cart-row">
 			 	<td>
 			 		<div class="cart-info">
 			 			<img width="100px" height="130px;" src="images/Lola Abstract print pant set.jpeg">
 			 			<div>
 			 				<p>Lola Abstract Print Pant Set</p>
 			 				<small>Price: $50.00</small> <br>
-			 				<a href="">Remove</a>
+			 				<button class="btn btn-danger">Remove</button>
 			 			</div>
 			 		</div>
 			 	
 			 	</td>
-				<td><input type="number" value="1"></td>
-				<td>$50.00</td>
+				<td><input class="cart-quantity-input"  type="number" value="1"></td>
+				<td class="cart-price">$50.00</td>
 			
 			
 			</tr>
 			
-			<tr>
+			<tr class="cart-row">
 			 	<td>
 			 		<div class="cart-info">
 			 			<img width="100px" height="130px;" src="images/Lola strapless ruched dress.jpeg">
 			 			<div>
 			 				<p>Lola strapless ruched dress</p>
 			 				<small>Price: $50.00</small> <br>
-			 				<a href="">Remove</a>
+			 				<button class="btn btn-danger">Remove</button>
 			 			</div>
 			 		</div>
 			 	
 			 	</td>
-				<td><input type="number" value="1"></td>
-				<td>$50.00</td>
+				<td><input class="cart-quantity-input" type="number" value="1"></td>
+				<td class="cart-price">$50.00</td>
 			
 			
 			</tr>
@@ -98,19 +98,19 @@
 			<table>
 				<tr>
 					<td>Subtotal</td>
-					<td>$200.00</td>
+					<td class="cart-Subtotal-price">$100.00</td>
 				
 				</tr>
 				
 				<tr>
 					<td>Tax</td>
-					<td>$20.00</td>
+					<td class="cart-tax-price">6.25%</td>
 				
 				</tr>
 				
 				<tr>
 					<td>Total</td>
-					<td>$220.00</td>
+					<td class="cart-total-price">$106.25</td>
 				
 				</tr>
 				

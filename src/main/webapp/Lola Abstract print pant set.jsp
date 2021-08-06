@@ -20,6 +20,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="AlWeb.js" async></script>
 </head>
 <body>
 	<div class="header">
@@ -58,7 +59,7 @@
 		while(rs.next()){
 %>
 	<div class="small-container single-product">
-		<div class="row">
+		<div class="row items">
 			<div class="col-2">
 				<img src="<%=rs.getString(3)%>" width="100%"
 					id="ProductImg">
@@ -82,7 +83,7 @@
 
 			<div class="col-2">
 				<p><%=rs.getString(4)%></p>
-				<h1><%=rs.getString(2)%></h1>
+				<h1 class="shop-item-title"><%=rs.getString(2)%></h1>
 				<h4>$<%=rs.getString(7)%></h4>
 				<div class="rating">
 					<p>&#9733;&#9733;&#9733;&#9733;&#9734;</p>
@@ -96,8 +97,8 @@
 					<option>Small</option>
 				</select> 
 				<input type="number" value="1"> 
-				<a href="addToCartAction.jsp" class="btn">Add
-					To Cart</a>
+				<button class="btn shop-item-button">Add
+					To Cart</button>
 				<h3>
 					Product Description <i class="fa fa-indent" aria-hidden="true"></i>
 				</h3>

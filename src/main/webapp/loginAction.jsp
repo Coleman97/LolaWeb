@@ -8,7 +8,7 @@
 
 <%
 
-String email = request.getParameter("Email");
+String email = request.getParameter("email");
 String password =  request.getParameter("password");
 
 if("admin@gmail.com".equals(email) && "admin".equals(password)){

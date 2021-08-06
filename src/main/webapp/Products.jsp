@@ -37,9 +37,9 @@
 					<ul id="MenuItems">
 						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
-						<li><a href="" class="menu-fonts">About</a></li>
-						<li><a href="" class="menu-fonts">Contact</a></li>
-						<li><a href="" class="menu-fonts">Account</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
 				<a href="" class="cart"><img src="images/cart.png" width="30px"
@@ -54,13 +54,13 @@
 		<div class="row row-2">
 			<h3>All Products</h3>
 			
-			<select>
+			<!-- <select>
 				<option>Default Sorting</option>
 				<option>Sort By Price</option>
 				<option>Sort By Popularity</option>
 				<option>Sort By Rating</option>
 				<option>Sort By Sale</option>
-			</select>
+			</select>-->
 		</div>
 		
 		<form class="example" action="action_page.jsp">
@@ -77,7 +77,7 @@
 		while(rs.next()){
 %>
 			<div class="col-4">
-				<a href="Lola Floral Ruffle Cut Out Dress.jsp">
+				<a href="<%=rs.getString(8)%>">
 				<img src="<%=rs.getString(3)%>" alt="">
 					<h4>
 						<b><%=rs.getString(2)%></b>
@@ -98,8 +98,7 @@
 		</div>
 
 		<div class="page-btn">
-			<a href="Products.jsp"><span>1</span></a> <a href="ProductsPage2.jsp"><span>2</span></a>
-			<span>3</span> <span>4</span> <span>&#8594;</span>
+			<a href="Products.jsp"><span>1</span></a> <a href="ProductsPage2.jsp"><span>2</span></a><span>&#8594;</span>
 		</div>
 	</div>
 

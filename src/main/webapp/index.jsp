@@ -35,7 +35,7 @@
 						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="" class="cart"><img src="images/cart.png" width="30px"
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
 					height="30px"></a> <img src="images/menu.png" class="menu-icon"
 					onclick="menutoggle()">
 			</div>
