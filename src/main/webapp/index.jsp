@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fashion House Of Lola</title>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <style><%@include file="/style.css"%></style>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -32,7 +33,7 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<li class="user"><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
@@ -177,7 +178,7 @@
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

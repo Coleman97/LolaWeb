@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>All Products -Fashion House Of Lola</title>
 <style><%@include file="/style.css"%></style>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"
@@ -42,7 +43,7 @@
 						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="" class="cart"><img src="images/cart.png" width="30px"
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
 					height="30px"></a> <img src="images/menu.png" class="menu-icon"
 					onclick="menutoggle()">
 			</div>
@@ -113,7 +114,7 @@
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

@@ -15,6 +15,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>All Products -Fashion House Of Lola Page 2</title>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <style><%@include file="/style.css"%></style>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -39,12 +40,12 @@
 					<ul id="MenuItems">
 						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
-						<li><a href="" class="menu-fonts">About</a></li>
-						<li><a href="" class="menu-fonts">Contact</a></li>
-						<li><a href="" class="menu-fonts">Account</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="" class="cart"><img src="images/cart.png" width="30px"
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
 					height="30px"></a> <img src="images/menu.png" class="menu-icon"
 					onclick="menutoggle()">
 			</div>
@@ -53,16 +54,9 @@
 	</div>
 	<!-- -----All Products -->
 	<div class="small-container">
-		<div class="row row-2">
-			<h3>All Products</h3>
-			<select>
-				<option>Default Sorting</option>
-				<option>Sort By Price</option>
-				<option>Sort By Popularity</option>
-				<option>Sort By Rating</option>
-				<option>Sort By Sale</option>
-			</select>
-		</div>
+		<br>
+		<br>
+		<br>
 
 
 		<div class="row">
@@ -105,7 +99,7 @@ if(z==0){
 		</div>
 		<div class="page-btn">
 			<a href="Products.jsp"><span>1</span></a> <a href="ProductsPage2.jsp"><span>2</span></a>
-			<span>3</span> <span>4</span> <span>&#8594;</span>
+			<span>&#8594;</span>
 		</div>
 	</div>
 
@@ -120,7 +114,7 @@ if(z==0){
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

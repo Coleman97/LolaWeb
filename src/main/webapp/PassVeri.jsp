@@ -10,7 +10,6 @@ String userEmail =  request.getParameter("email");
 System.out.println(userEmail);
 
 
-
 if(userEmail == ""){
 	PrintWriter pw = response.getWriter();
 	pw.println("<script type=\"text/javascript\">");

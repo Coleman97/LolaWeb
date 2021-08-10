@@ -7,13 +7,23 @@
 
 
 
+<%
+	try{
+		Connection con = Conn.getCon(); 
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery("Select * from product where ID = 3");
+		while(rs.next()){
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products -Lola One Shoulde Jumpsuit</title>
+<title>Products -<%=rs.getString(2)%></title>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <style><%@include file="/style.css"%></style>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -21,6 +31,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="AlWeb.js?newversion" async></script>
 </head>
 <body>
 	<div class="header">
@@ -38,12 +49,12 @@
 					<ul id="MenuItems">
 						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
-						<li><a href="" class="menu-fonts">About</a></li>
-						<li><a href="" class="menu-fonts">Contact</a></li>
-						<li><a href="" class="menu-fonts">Account</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="" class="cart"><img src="images/cart.png" width="30px"
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
 					height="30px"></a> <img src="images/menu.png" class="menu-icon"
 					onclick="menutoggle()">
 			</div>
@@ -51,13 +62,6 @@
 		</div>
 	</div>
 	<!-- -----Single Product -->
-<%
-	try{
-		Connection con = Conn.getCon(); 
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("Select * from product where ID = 3");
-		while(rs.next()){
-%>
 	<div class="small-container single-product">
 		<div class="row">
 			<div class="col-2">
@@ -95,8 +99,10 @@
 					<option>Large</option>
 					<option>Medium</option>
 					<option>Small</option>
-				</select> <input type="number" value="1"> <a href="" class="btn">Add
-					To Cart</a>
+				</select> 
+				
+				<a class="btn" href = "addToCart.jsp?id=<%=rs.getString(1)%>" >Add To Cart</a>
+				
 				<h3>
 					Product Description <i class="fa fa-indent" aria-hidden="true"></i>
 				</h3>
@@ -203,7 +209,7 @@
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

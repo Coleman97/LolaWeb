@@ -1,18 +1,28 @@
+<%@page import="project.Conn"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="java.io.PrintWriter"%>
+<%@page import ="project.SendEmail" %>
+<%@page import ="project.User" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fashion House of Laola-Shopping Cart</title>
+<title>Fashion House of Lola-Shopping Cart</title>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <style><%@include file="/style.css"%></style>
+
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
 	href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="AlWeb.js" async></script>
+<!--  <script src="AlWeb.js" async></script>-->
 </head>
 <body>
 	<div class="header">
@@ -29,20 +39,43 @@
 				<nav>
 					<ul id="MenuItems">
 						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
-						<li><a href="Products.jspindex.jsp" class="menu-fonts">Products</a></li>
-						<li><a href="" class="menu-fonts">About</a></li>
-						<li><a href="" class="menu-fonts">Contact</a></li>
-						<li><a href="" class="menu-fonts">Account</a></li>
+						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="cart.jspindex.jsp" class="cart"><img
-					src="images/cart.png" width="30px" height="30px"></a> <img
-					src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
+					height="30px"></a> <img src="images/menu.png" class="menu-icon"
+					onclick="menutoggle()">
 			</div>
 
 		</div>
 	</div>
+<%
+String email = session.getAttribute("email").toString();
+int Price = 0;
+int subTotal = 0;
+int Total = 0;
+int quantity = 0;
 
+try{
+	Connection con = Conn.getCon(); 
+	Statement st = con.createStatement();
+	ResultSet rs1 = st.executeQuery("select sum(quantity),sum(sub_total),sum(total),price from cart where email = '"+email+"' and address is null");
+	while(rs1.next()){
+		quantity = rs1.getInt(1);
+		subTotal = rs1.getInt(2);
+		Total = rs1.getInt(3);
+		
+		System.out.println(quantity);
+		System.out.println(subTotal);
+		System.out.println(Total);
+	
+		
+	}
+	
+%>
 	<!-- ===========Cart================= -->
 	<div class="small-container cart-page ">
 	
@@ -53,44 +86,34 @@
 				<th>SubTotal</th>
 			
 			</tr>
-			
+
+		<%
+			ResultSet rs = st.executeQuery("Select * from product join cart on product.id = cart.product_id and cart.email = '"+email+"' and cart.address is null");
+			while(rs.next())
+			{	
+		%>
 			<tr class="cart-row">
 			 	<td>
 			 		<div class="cart-info">
-			 			<img width="100px" height="130px;" src="images/Lola Abstract print pant set.jpeg">
+			 			<img width="100px" height="130px;" src="<%=rs.getString(3)%>">
 			 			<div>
-			 				<p>Lola Abstract Print Pant Set</p>
-			 				<small>Price: $50.00</small> <br>
-			 				<button class="btn btn-danger">Remove</button>
+			 				<p><%=rs.getString(2)%></p>
+			 				<small>Price: $<%=rs.getString(7)%></small> <br>
+			 				<a href="Remove.jsp?id=<%=rs.getString(1)%>" class="btn btn-danger">Remove</a>
 			 			</div>
 			 		</div>
 			 	
 			 	</td>
-				<td><input class="cart-quantity-input"  type="number" value="1"></td>
-				<td class="cart-price">$50.00</td>
+				<td><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=inc"><i class='fa fa-plus-circle' style="color:#ff523b" ></i></a><%=rs.getString(12)%><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=desc"><i class='fa fa-minus-circle' style="color:#ff523b"></i></a></td>
+				<td class="cart-price">$<%=rs.getString(13)%>.00</td>
 			
 			
 			</tr>
-			
-			<tr class="cart-row">
-			 	<td>
-			 		<div class="cart-info">
-			 			<img width="100px" height="130px;" src="images/Lola strapless ruched dress.jpeg">
-			 			<div>
-			 				<p>Lola strapless ruched dress</p>
-			 				<small>Price: $50.00</small> <br>
-			 				<button class="btn btn-danger">Remove</button>
-			 			</div>
-			 		</div>
-			 	
-			 	</td>
-				<td><input class="cart-quantity-input" type="number" value="1"></td>
-				<td class="cart-price">$50.00</td>
-			
-			
-			</tr>
-			
-		
+		<%
+		}
+		}catch(Exception e){
+			System.out.println(e);
+		}%>
 		</table>
 		
 		
@@ -98,7 +121,7 @@
 			<table>
 				<tr>
 					<td>Subtotal</td>
-					<td class="cart-Subtotal-price">$100.00</td>
+					<td class="cart-Subtotal-price">$<%out.println(subTotal);%>.00</td>
 				
 				</tr>
 				
@@ -110,7 +133,7 @@
 				
 				<tr>
 					<td>Total</td>
-					<td class="cart-total-price">$106.25</td>
+					<td class="cart-total-price">$<%out.println(Total);%>.00</td>
 				
 				</tr>
 				
@@ -118,7 +141,21 @@
 		
 		</div>
 	
+		<br>
+		<br>
+		<br>
+		
 	
+			<div class="cart-proceed">
+			<label>Select a payment option below!</label>
+				<div>
+				<button class="button"><img src="images/paypal.svg"></button>
+				<button class="button2"><img src="images/square-vector-logo.svg"></button>
+				</div>
+			</div>
+		
+	
+		
 	
 	
 	</div>	
@@ -133,7 +170,7 @@
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

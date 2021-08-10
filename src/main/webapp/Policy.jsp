@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fashion House of Laola-Shopping Cart</title>
+<title>Fashion House of Lola-Policy</title>
+<link rel="shortcut icon" href="images/Transparent Logo.png">
 <style> <%@include file="/style.css"%></style>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
@@ -29,15 +30,15 @@
 				<nav>
 					<ul id="MenuItems">
 						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
-						<li><a href="Products.jspindex.jsp" class="menu-fonts">Products</a></li>
-						<li><a href="" class="menu-fonts">About</a></li>
-						<li><a href="" class="menu-fonts">Contact</a></li>
-						<li><a href="" class="menu-fonts">Account</a></li>
+						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
 					</ul>
 				</nav>
-				<a href="cart.jspindex.jsp" class="cart"><img
-					src="images/cart.png" width="30px" height="30px"></a> <img
-					src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
+					height="30px"></a> <img src="images/menu.png" class="menu-icon"
+					onclick="menutoggle()">	
 			</div>
 
 		</div>
@@ -72,13 +73,13 @@
 				If you have not received a refund yet, first check your bank account again. <br>
 				Then contact your credit card company, it may take some time before your refund is officially posted. <br> 
 				Next contact your bank. There is often some processing time before a refund is posted. <br>
-				If you have done all of this and you still have not received your refund yet, please contact us at <a href="" style="color: blue;">sales@lolafashionstyle.com</a>. </p> 
+				If you have done all of this and you still have not received your refund yet, please contact us at <a href="mailto:lolafashionstyle21@gmail.com" style="color: blue;">sales@lolafashionstyle.com</a>. </p> 
 				<br>
 			<p><b>Sale items (if applicable) </b> <br>
 				Only regular priced items may be refunded, unfortunately sale items cannot be refunded. </p>
 			<br>
 			<p><b>Exchanges (if applicable)</b> <br>
-				We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at <a href="" style="color: blue;">sales@lolafashionstyle.com</a>, and we will tell you where to send item/product.</p>
+				We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at <a href="mailto:lolafashionstyle21@gmail.com" style="color: blue;">sales@lolafashionstyle.com</a>, and we will tell you where to send item/product.</p>
 			<br>
 			<p><b>Shipping</b> <br>
 				After confirming payments and orders your item will be shipped to you with urgency, and you can track your shipping update by signing into your account to view status of your order. We not not ship outside of United States for the Meantime. If you’re residing outside United States and need any of our item feel free to write us before placing order so we can make arrangements.</p>
@@ -114,7 +115,7 @@ We may update this privacy policy from time to time in order to reflect, for exa
 The Site has no age restrictions.</p>
 <br>
 <p><b>Contact us</b> <br>
-For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at <a href="" style="color: blue;">sales@lolafashionstyle.com</a> or by mail using the details provided in the contacts page:</p>
+For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at <a href="mailto:lolafashionstyle21@gmail.com" style="color: blue;">sales@lolafashionstyle.com</a> or by mail using the details provided in the contacts page:</p>
 <br>
 <a href="Contact.jsp" class="btn">Proceed to Contact page</a>
 		
@@ -134,7 +135,7 @@ For more information about our privacy practices, if you have questions, or if y
 					</h3>
 
 					<h3>
-						POLICIES: <br> <a class="footer-link" href="">Shipping
+						POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
 							and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
 							width="300px" alt="">
 				</div>

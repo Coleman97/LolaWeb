@@ -12,6 +12,7 @@ String email =  request.getParameter("email");
 String PhoneNo =  request.getParameter("phone");
 String Password =  request.getParameter("password");
 
+
 if(name == ""){
 	PrintWriter pw = response.getWriter();
 	pw.println("<script type=\"text/javascript\">");
@@ -20,10 +21,11 @@ if(name == ""){
 	RequestDispatcher rd=request.getRequestDispatcher("Account.jsp");
 	rd.include(request, response);
 }else if(email == ""){
-	PrintWriter pw = response.getWriter();
-	pw.println("<script type=\"text/javascript\">");
-	pw.println("alert('Invalid EmailAddress');");
-	pw.println("</script>");
+	%>
+	  <script type="text/javascript">
+	      alert("Invalid Email");
+	  </script>
+	<%
 	RequestDispatcher rd=request.getRequestDispatcher("Account.jsp");
 	rd.include(request, response);
 }else if(PhoneNo == ""){
@@ -42,18 +44,7 @@ if(name == ""){
 	rd.include(request, response);
 }else{
 
-try{
-	
-	Connection con = Conn.getCon();
-	String query = "insert into Users values(?,?,?,?)";
-	  PreparedStatement ps = con.prepareStatement(query); 
-	 	ps.setString(1,name);
-	    ps.setString(2,email);
-	    ps.setString(3,PhoneNo);
-	    ps.setString(4,Password);
-	    ps.executeUpdate();
-	  
-	  
+try{  
 	  String Username = name;
 	  String Email = email;
 	  
@@ -66,7 +57,13 @@ try{
 	  
 	  if(test){
 		  session.setAttribute("authcode", user);
-		  response.sendRedirect("EmailVeri.jsp?msg=valid");		  
+		
+		  session.setAttribute("name", name);
+		  session.setAttribute("Email", email);
+		  session.setAttribute("PhoneNo", PhoneNo);
+		  session.setAttribute("Password", Password);
+		  response.sendRedirect("EmailVeri.jsp?msg=valid");	
+		  
 	  }
 	
 	

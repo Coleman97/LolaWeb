@@ -587,6 +587,68 @@ th:last-child{
 	text-align:right;
 }
 
+.cart-form {
+	background: #fff;
+	width:900px;
+	height: 400px;
+	position: relative;
+	text-align: center;
+	padding: 100px 0;
+	margin: auto;
+	border: 2px solid #ff523b;
+	border-radius:15px;
+	overflow: hidden;
+}
+.cart-form label{
+	font-size: 30px;
+}
+.cart-image-selector img{
+	width:230px;
+	margin-top: 50px;
+	margin-right: 30px;
+	
+}
+/*.cart-image-selector img:first-child{
+	border: 2px solid #a0b9f3;
+	box-shadow: 2px;
+	border-radius: 30px;
+	height:70px;
+}
+.cart-image-selector img:last-child{
+	border: 2px solid black;
+	box-shadow: 2px;
+	border-radius: 30px;
+	height:70px;
+}*/
+.cart-proceed label{
+	font-size: 20px;
+}
+.cart-proceed img{
+	width: 120px;
+	height: 80px;
+	position:center;
+	margin-top:-10px;
+	margin-left:-10px;
+}
+
+.button{
+	background-color: #e48556;
+	width: 300px;
+	height: 60px;
+	margin-top:20px;
+	border-radius:20px;
+	border:0px solid
+}
+.button2{
+	background-color: #c0c0c0;
+	width: 300px;
+	height: 60px;
+	margin-left:20px;
+	margin-top:20px;
+	border-radius:20px;
+	border:0px solid
+}
+
 /* ========Account Page--- */
 .account-page {
 	padding: 50px 0;
@@ -781,14 +843,6 @@ form a {
 	min-height: 150px;
 }
 
-.contact-stuff::after{	
-	content: '';
-	position: absolute;
-	background: url("images/women.jpg") no-repeat center;
-	background-size: cover;
-	z-index: -1;
-	filter: blur(50px);
-}
 
 
 @media only screen and (max-width:1500px) {

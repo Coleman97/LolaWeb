@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fashion House of Laola-Shopping Cart</title>
+    <title>Fashion House of Lola-Shopping Cart</title>
+    <link rel="shortcut icon" href="images/Transparent Logo.png">
     <style> <%@include file="/style.css"%></style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,15 +34,16 @@
                     <div id="crow">|</div>
                     <nav>
                         <ul id="MenuItems">
-                            <li><a href="index.jsp" class="menu-fonts">Home</a></li>
-                            <li><a href="Products.jspindex.jsp" class="menu-fonts">Products</a></li>
-                            <li><a href="" class="menu-fonts">Contact</a></li>
-                            <li><a href="" class="menu-fonts">Account</a></li>
-                        </ul>
-                    </nav>
-                    <a href="cart.jspindex.jsp" class="cart"><img
-                        src="images/cart.png" width="30px" height="30px"></a> <img
-                        src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+						<li><a href="index.jsp" class="menu-fonts">Home</a></li>
+						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
+						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
+						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+					</ul>
+				</nav>
+				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
+					height="30px"></a> <img src="images/menu.png" class="menu-icon"
+					onclick="menutoggle()">
                 </div>
     
             </div>
@@ -86,7 +88,7 @@
                         </h3>
     
                         <h3>
-                            POLICIES: <br> <a class="footer-link" href="">Shipping
+                            POLICIES: <br> <a class="footer-link" href="Policy.jsp">Shipping
                                 and Returns.</a> <br> <img src="images/zpaymentgateways-3.png"
                                 width="300px" alt="">
                     </div>

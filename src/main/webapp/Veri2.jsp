@@ -15,17 +15,17 @@
 	System.out.println(code);
 	
 	if(code.equals(user.getCode())){
+		response.sendRedirect("NewPass.jsp?msg=valid");	
 		PrintWriter pw = response.getWriter();
 		pw.println("<script type=\"text/javascript\">");
 		pw.println("alert('Verification Done!');");
 		pw.println("</script>");
-		response.sendRedirect("NewPass.jsp?msg=valid");	
 	}else{
+		response.sendRedirect("EmailVeri2.jsp?msg=invalid");
 		PrintWriter pw = response.getWriter();
 		pw.println("<script type=\"text/javascript\">");
 		pw.println("alert('Incorrect Verification Code!');");
 		pw.println("</script>");
-		response.sendRedirect("EmailVeri2.jsp?msg=invalid");
 	}
 
 %>

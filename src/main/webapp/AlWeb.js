@@ -5,24 +5,19 @@ if(document.readyState == 'loading'){
 }
 
 function ready(){
-	var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+ 	 var removeCartItemButtons = document.getElementsByClassName('btn-danger')
 	console.log(removeCartItemButtons)
 	for(var i = 0; i < removeCartItemButtons.length; i++){
 	var button = removeCartItemButtons[i]
 	button.addEventListener('click', removeCartItem)
 	}
 	
-	var quantityInputs = document.getElementsByClassName('cart-quantity-input')
-	for(var i = 0; i < quantityInputs.length; i++){
-		var input = quantityInputs[i]
-		input.addEventListener('change', quantityChanged)
-	}
+	//var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+	///for(var i = 0; i < quantityInputs.length; i++){
+		//var input = quantityInputs[i]
+		//input.addEventListener('change', quantityChanged)
+	//} 
 	
-	var addToCartButton = document.getElementsByClassName('shop-item-button')
-	for(var i = 0; i < removeCartItemButtons.length; i++){
-		var button = addToCartButton[i]
-		button.addEventListener('click',addToCartClicked)
-	}
 }
 
 function removeCartItem(event){
@@ -39,21 +34,16 @@ function quantityChanged(event){
 	updateCartTotal()
 }
 
-function addToCartClicked(event){
-	var button = event.target
-	var shopItem = button.parentElement.parentElement
-	var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-	console.log(title)
-	
-}
-
 function updateCartTotal(){
 	var cartItemContainer =  document.getElementsByClassName('cart-items')[0]
+	//console.log(cartItemContainer)
 	var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+	//console.log(cartRows)
 	var subTotal = 0;
 	var Tax = (6.25/100) * subTotal
 	var total = 0
-	
+	var ProdName = document.getElementsByClassName('cartProd-name').innerText
+	console.log(ProdName)
 	for(var i = 0; i < cartRows.length; i++){
 		var cartRow = cartRows[i]
 		var priceElement = cartRow.getElementsByClassName('cart-price')[0]
@@ -68,6 +58,8 @@ function updateCartTotal(){
 		total = Math.round(total * 100) / 100
 		document.getElementsByClassName('cart-Subtotal-price')[0].innerText = '$' + subTotal
 		document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+		
+		console.log(total)
 }
 
 
