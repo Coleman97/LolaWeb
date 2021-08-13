@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All Products -Fashion House Of Lola Page 2</title>
+<title>All Products -Search Results</title>
 <link rel="shortcut icon" href="images/Transparent Logo.png">
 <style><%@include file="/style.css"%></style>
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,7 +42,21 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<%
+						if(session.getAttribute("email")== null){%>
+						<li><a href="Account.jsp" class="menu-fonts">SignUp/Login</a></li>
+						<%}else{
+							String email = session.getAttribute("email").toString();
+							try{
+								Connection con = Conn.getCon(); 
+								Statement st = con.createStatement();	
+								ResultSet rs = st.executeQuery("Select username from users where email = '"+email+"'");
+								while(rs.next()){%>
+								<li><a href="#" class="menu-fonts"><i class="fa fa-user" style="font-size:21px" aria-hidden="true"></i><%=rs.getString(1)%></a></li>
+								<li><a href= "LogoutAction.jsp"><i class="fa fa-sign-out" style="font-size:21px" aria-hidden="true">Logout</i></a></li>
+								<% }}catch(Exception e){
+									e.printStackTrace();
+						}}%>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"

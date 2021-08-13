@@ -40,7 +40,21 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<%
+						if(session.getAttribute("email")== null){%>
+						<li><a href="Account.jsp" class="menu-fonts">SignUp/Login</a></li>
+						<%}else{
+							String email = session.getAttribute("email").toString();
+							try{
+								Connection con = Conn.getCon(); 
+								Statement st = con.createStatement();	
+								ResultSet rs = st.executeQuery("Select username from users where email = '"+email+"'");
+								while(rs.next()){%>
+								<li><a href="#" class="menu-fonts"><i class="fa fa-user" style="font-size:21px" aria-hidden="true"></i><%=rs.getString(1)%></a></li>
+								<li><a href= "LogoutAction.jsp"><i class="fa fa-sign-out" style="font-size:21px" aria-hidden="true">Logout</i></a></li>
+								<% }}catch(Exception e){
+									e.printStackTrace();
+						}}%>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
@@ -84,7 +98,7 @@
 						<b><%=rs.getString(2)%></b>
 					</h4></a>
 				<div class="rating">
-					<p>&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+					<p style="color:#ffff00;">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
 				</div>
 				<p>$<%=rs.getString(7)%></p>
 

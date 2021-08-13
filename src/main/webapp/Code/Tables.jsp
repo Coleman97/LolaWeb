@@ -7,7 +7,7 @@ try{
 	Connection con = Conn.getCon();
 	Statement st = con.createStatement();
 	String query = "Create Table Users(Username varchar(100),Email varchar(100)primary key,MobileNum bigint,Password nvarchar(128) NOT NULL)";
-	String query2 = "Create Table Product(ID int, Name varchar(500),image varchar(100),Category Varchar(200),Description varchar(500),Comment varchar(150), Price int,link varchar(50),active Varchar(10))";
+	String query2 = "Create Table Product(ID int, Name varchar(500),image varchar(100),Category Varchar(200),Description varchar(500),Comment varchar(150), Price int,link varchar(50),image2 varchar(100),active Varchar(10))";
 	
 	//st.execute(query);
 	st.execute(query2);

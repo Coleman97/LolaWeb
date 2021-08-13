@@ -24,8 +24,8 @@ public class SendEmail {
 		boolean text = false;
 		
 		String toEmail = user.getEmail();
-		String fromEmail ="tobbycole12@gmail.com"; 
-		String password = "messi12barca";
+		String fromEmail ="lolafashionstyle21@gmail.com"; 
+		String password = "Godkind2021";
 		
 		try {
 			

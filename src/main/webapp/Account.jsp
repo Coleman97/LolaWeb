@@ -34,7 +34,7 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<li><a href="Account.jsp" class="menu-fonts">SignUp/Login</a></li>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
@@ -75,10 +75,8 @@
 								type="password" name="password" placeholder="Password">
 							<button type="submit" class="btn">Create Account</button>
 							<p>
-								<b>or</b>
+				
 							</p>
-							<a style="font-size: 15px;" href="guest.jsp" class="btn">Continue
-								as Guest</a>
 						</form>
 					</div>
 				</div>

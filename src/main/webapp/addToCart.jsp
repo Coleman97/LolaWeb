@@ -6,15 +6,18 @@
 <%@page import ="project.User" %>
 
 <%
-
-String email = session.getAttribute("email").toString();
-if(email == null || email == ""){
+if(session.getAttribute("email")== null){
+	RequestDispatcher rd=request.getRequestDispatcher("Account.jsp");
 	PrintWriter pw = response.getWriter();
 	pw.println("<script type=\"text/javascript\">");
-	pw.println("alert('Log in to buy product');");
+	pw.println("alert('Please login to add product to cart!');");
 	pw.println("</script>");
-	response.sendRedirect("Account.jsp");
-}
+	rd.include(request, response);
+}else{
+String email = session.getAttribute("email").toString();
+
+
+
 
 String product_id = request.getParameter("id");
 int quantity = 1;
@@ -75,6 +78,7 @@ try{
 }catch(Exception e){
 	System.out.println(e);
 	response.sendRedirect("cart.jsp?msg=invalid");
+}
 }
 
 %>

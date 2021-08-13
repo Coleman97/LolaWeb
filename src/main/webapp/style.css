@@ -411,7 +411,9 @@ small {
 	display: none;
 	margin-top: 5px;
 }
-
+.rating{
+	color:#ffff00;
+}
 /* ==================================PRODUCTS PAGE CSS========================== */
 .row-2 {
 	justify-content: space-between;
@@ -463,6 +465,7 @@ select:focus {
 }
 
 .single-product .col-2 .rating p {
+	color:#ffff00;
 	font-size: 25px;
 }
 
@@ -625,7 +628,7 @@ th:last-child{
 }
 .cart-proceed img{
 	width: 120px;
-	height: 80px;
+	height: 70px;
 	position:center;
 	margin-top:-10px;
 	margin-left:-10px;
@@ -634,7 +637,7 @@ th:last-child{
 .button{
 	background-color: #e48556;
 	width: 300px;
-	height: 60px;
+	height: 50px;
 	margin-top:20px;
 	border-radius:20px;
 	border:0px solid
@@ -642,13 +645,12 @@ th:last-child{
 .button2{
 	background-color: #c0c0c0;
 	width: 300px;
-	height: 60px;
+	height: 50px;
 	margin-left:20px;
 	margin-top:20px;
 	border-radius:20px;
 	border:0px solid
 }
-
 /* ========Account Page--- */
 .account-page {
 	padding: 50px 0;
@@ -760,7 +762,6 @@ form a {
 	right: 0;
 	width: 100%;
 	height: 100%;
-	/* background: url("images/women.jpg") no-repeat center; */
 	background-size: cover;
 	z-index: -1;
 	filter: blur(50px);
@@ -774,15 +775,6 @@ form a {
 	text-align: center;
 }
 
-/* .left{
-	height: 100%;
-	background: url("images/Lola\ Abstract\ print\ pant\ set.jpeg") no-repeat center;
-	background-size: cover;
-} */
-
-.right{
-	/* padding: 25px 40px; */
-}
 
 .right h2{
 	position: relative;
@@ -975,19 +967,16 @@ form a {
 		padding: 2px 0px;
 		text-align: left;
 	}
-	.btn-danger {
-		font-size: 11px;
-		width: 50px;
-		text-align: left;
-	}
 	.btn-proceed {
 		padding: 5px 20px;
 		font-size: 15px;
 	}
-	.cart-quantity-input {
-		height: 34px;
-		width: 40px;
-		font-size: 1.0em;
-		margin-right: 30px;
+	form.example button {
+		width:10%;
 	}
+
+.contact{
+	padding: 20px 10px;
+}
+		
 }

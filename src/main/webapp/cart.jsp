@@ -42,7 +42,21 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<%
+						if(session.getAttribute("email")== null){%>
+						<li><a href="Account.jsp" class="menu-fonts">SignUp/Login</a></li>
+						<%}else{
+							String email = session.getAttribute("email").toString();
+							try{
+								Connection con2 = Conn.getCon(); 
+								Statement st2 = con2.createStatement();	
+								ResultSet rs2 = st2.executeQuery("Select username from users where email = '"+email+"'");
+								while(rs2.next()){%>
+								<li><a href="#" class="menu-fonts"><i class="fa fa-user" style="font-size:21px" aria-hidden="true"></i><%=rs2.getString(1)%></a></li>
+								<li><a href= "LogoutAction.jsp"><i class="fa fa-sign-out" style="font-size:21px" aria-hidden="true">Logout</i></a></li>
+								<% }}catch(Exception e){
+									e.printStackTrace();
+						}}%>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
@@ -53,11 +67,12 @@
 		</div>
 	</div>
 <%
-String email = session.getAttribute("email").toString();
 int Price = 0;
 int subTotal = 0;
 int Total = 0;
 int quantity = 0;
+if(session.getAttribute("email")!= null){
+String email = session.getAttribute("email").toString();
 
 try{
 	Connection con = Conn.getCon(); 
@@ -99,13 +114,13 @@ try{
 			 			<div>
 			 				<p><%=rs.getString(2)%></p>
 			 				<small>Price: $<%=rs.getString(7)%></small> <br>
-			 				<a href="Remove.jsp?id=<%=rs.getString(1)%>" class="btn btn-danger">Remove</a>
+			 				<a href="Remove.jsp?id=<%=rs.getString(1)%>" class="">Remove</a>
 			 			</div>
 			 		</div>
 			 	
 			 	</td>
-				<td><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=inc"><i class='fa fa-plus-circle' style="color:#ff523b" ></i></a><%=rs.getString(12)%><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=desc"><i class='fa fa-minus-circle' style="color:#ff523b"></i></a></td>
-				<td class="cart-price">$<%=rs.getString(13)%>.00</td>
+				<td><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=inc"><i class='fa fa-plus-circle' style="color:#ff523b" ></i></a><%=rs.getString(13)%><a href="incDecQtyAction.jsp?id=<%=rs.getString(1)%>&quantity=desc"><i class='fa fa-minus-circle' style="color:#ff523b"></i></a></td>
+				<td class="cart-price">$<%=rs.getString(14)%>.00</td>
 			
 			
 			</tr>
@@ -114,10 +129,56 @@ try{
 		}catch(Exception e){
 			System.out.println(e);
 		}%>
-		</table>
+			</table>
 		
 		
 		<div class="total-price">
+			<table>
+				<tr>
+					<td>Subtotal</td>
+					<td class="cart-Subtotal-price">$<%out.println(subTotal);%>.00</td>
+				
+				</tr>
+				
+				<tr>
+					<td>Tax</td>
+					<td class="cart-tax-price">6.25%</td>
+				
+				</tr>
+				
+				<tr>
+					<td>Total</td>
+					<td class="cart-total-price">$<%out.println(Total);%>.00</td>
+				</tr>
+			</table>
+		
+		</div>
+		
+		<br>
+		<br>
+		<br>
+		
+	
+		<div class="cart-proceed">
+			<label>Select a payment option below!</label>
+				<div>
+				<button onclick="window.location.href = 'authorize_payment.jsp'" class="button"><img src="images/paypal.svg"></button>
+				<button class="button2"><img src="images/square-vector-logo.svg"></button>
+				</div>
+			</div>
+			</div>
+<%}else{%>
+		<div class="small-container cart-page ">
+	
+		<table class="cart-items">
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>SubTotal</th>
+			
+			</tr>
+		</table>
+			<div class="total-price">
 			<table>
 				<tr>
 					<td>Subtotal</td>
@@ -139,8 +200,8 @@ try{
 				
 			</table>
 		
-		</div>
-	
+			</div>
+		
 		<br>
 		<br>
 		<br>
@@ -149,16 +210,14 @@ try{
 			<div class="cart-proceed">
 			<label>Select a payment option below!</label>
 				<div>
-				<button class="button"><img src="images/paypal.svg"></button>
+				<button onclick="window.location.href = 'authorize_Payment.jsp'" class="button"><img src="images/paypal.svg"></button>
 				<button class="button2"><img src="images/square-vector-logo.svg"></button>
 				</div>
 			</div>
+		</div>
+		<%}%>
 		
-	
 		
-	
-	
-	</div>	
 </body>
 <footer>
 	<div class="footer">

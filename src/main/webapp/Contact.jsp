@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="project.Conn"%>
+<%@page import="java.sql.*"%>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -38,7 +40,21 @@
 						<li><a href="Products.jsp" class="menu-fonts">Products</a></li>
 						<li><a href="Contact.jsp" class="menu-fonts">Contact</a></li>
 						<li><a href="Policy.jsp" class="menu-fonts">Policy</a></li>
-						<li><a href="Account.jsp" class="menu-fonts">Account</a></li>
+						<%
+						if(session.getAttribute("email")== null){%>
+						<li><a href="Account.jsp" class="menu-fonts">SignUp/Login</a></li>
+						<%}else{
+							String email = session.getAttribute("email").toString();
+							try{
+								Connection con = Conn.getCon(); 
+								Statement st = con.createStatement();	
+								ResultSet rs = st.executeQuery("Select username from users where email = '"+email+"'");
+								while(rs.next()){%>
+								<li><a href="#" class="menu-fonts"><i class="fa fa-user" style="font-size:21px" aria-hidden="true"></i><%=rs.getString(1)%></a></li>
+								<li><a href= "LogoutAction.jsp"><i class="fa fa-sign-out" style="font-size:21px" aria-hidden="true">Logout</i></a></li>
+								<% }}catch(Exception e){
+									e.printStackTrace();
+						}}%>
 					</ul>
 				</nav>
 				<a href="cart.jsp" class="cart"><img src="images/cart.png" width="30px"
@@ -49,7 +65,7 @@
             </div>
         </div>
     
-        <!-- ===========Cart================= -->
+        <!-- ===========Contact Form================= -->
         <div class="contact-page">
 		<div class="container contact-stuff">
 			<div class="row">
@@ -62,7 +78,7 @@
                             <div class="contact-box">
                                 <div class="right">
                                     <h2>Contact Us</h2>
-                                    <form action="https://formsubmit.co/tobbycole12@gmail.com" method="POST">
+                                    <form action="https://formsubmit.co/lolafashionstyle21@gmail.com" method="POST">
                                     <input name="name" type="text" class="field" placeholder="Name">
                                     <input name="email" type="email" class="field" placeholder="Email Address">
                                     <input name="phone" type="text" class="field" placeholder="Phone NO">
